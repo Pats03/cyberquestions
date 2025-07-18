@@ -22,9 +22,12 @@ const navigate = useNavigate();
   const [error, setError] = useState(null);
   const handleLogout = async () => {
     try {
-      await axios.get('http://localhost:4000/api/v1/auth/logout', {
-        withCredentials: true, // Ensure cookies (token) are cleared
-      });
+      await axios.get(
+        'https://cybersecuirty-backend.vercel.app/api/v1/auth/logout',
+        {
+          withCredentials: true, // Ensure cookies (token) are cleared
+        }
+      );
 
       // Redirect to login page after successful logout
       navigate('/login');
@@ -35,7 +38,9 @@ const navigate = useNavigate();
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/v1/quiz/quiz');
+        const response = await fetch(
+          'https://cybersecuirty-backend.vercel.app/api/v1/quiz/quiz'
+        );
         if (!response.ok) {
           throw new Error('Failed to fetch quiz questions');
         }

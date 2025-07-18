@@ -21,7 +21,7 @@ const Signup = () => {
     }
     try {
       const response = await axios.post(
-        'http://localhost:4000/api/v1/auth/register',
+        'https://cybersecuirty-backend.vercel.app/api/v1/auth/register',
         {
           email: username,
           password,

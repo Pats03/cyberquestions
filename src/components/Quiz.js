@@ -16,7 +16,7 @@ const Quiz = () => {
     const fetchQuizData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/v1/quiz/quiz/${role}`
+          `https://cybersecuirty-backend.vercel.app/api/v1/quiz/quiz/${role}`
         );
         setQuizData(response.data);
       } catch (err) {
@@ -38,9 +38,12 @@ const Quiz = () => {
   };
    const handleLogout = async () => {
      try {
-       await axios.get('http://localhost:4000/api/v1/auth/logout', {
-         withCredentials: true, // Ensure cookies (token) are cleared
-       });
+       await axios.get(
+         'https://cybersecuirty-backend.vercel.app/api/v1/auth/logout',
+         {
+           withCredentials: true, // Ensure cookies (token) are cleared
+         }
+       );
 
        // Redirect to login page after successful logout
        navigate('/login');
@@ -63,7 +66,7 @@ const handleSubmit = async () => {
 
   try {
    await axios.post(
-     'http://localhost:4000/api/v1/quiz/update-score',
+     'https://cybersecuirty-backend.vercel.app/api/v1/quiz/update-score',
      scoreData,
      {
        withCredentials: true,

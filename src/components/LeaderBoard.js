@@ -11,7 +11,7 @@ const Leaderboard = () => {
     const fetchLeaderboardData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:4000/api/v1/quiz/scores-by-jobrole',
+          'https://cybersecuirty-backend.vercel.app/api/v1/quiz/scores-by-jobrole',
           {
             withCredentials: true, // Ensures cookies (token) are sent
           }
@@ -35,9 +35,12 @@ const Leaderboard = () => {
   }, []);
     const handleLogout = async () => {
       try {
-        await axios.get('http://localhost:4000/api/v1/auth/logout', {
-          withCredentials: true, // Ensure cookies (token) are cleared
-        });
+        await axios.get(
+          'https://cybersecuirty-backend.vercel.app/api/v1/auth/logout',
+          {
+            withCredentials: true, // Ensure cookies (token) are cleared
+          }
+        );
 
         // Redirect to login page after successful logout
         navigate('/login');

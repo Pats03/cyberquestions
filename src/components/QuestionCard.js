@@ -23,7 +23,9 @@ const QuestionCard = ({ questionData, index, id }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/quiz/quiz/${id}`);
+      await axios.delete(
+        `https://cybersecuirty-backend.vercel.app/api/v1/quiz/quiz/${id}`
+      );
       alert('Quiz deleted successfully!');
       window.location.reload();
     } catch (error) {

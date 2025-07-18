@@ -49,7 +49,7 @@ export default function EditQuiz({ initialData, id, onClose }) {
     console.log(id);
     try {
       const response = await fetch(
-        `http://localhost:4000/api/v1/quiz/quiz/${id}`,
+        `https://cybersecuirty-backend.vercel.app/api/v1/quiz/quiz/${id}`,
         {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
