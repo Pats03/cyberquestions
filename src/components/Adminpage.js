@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
- import axios from 'axios';
- import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Button = ({ to, className, children, onClick, type }) => (
   <Link
@@ -14,9 +14,8 @@ const Button = ({ to, className, children, onClick, type }) => (
   </Link>
 );
 
-
 const AdminDashboard = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [quiz, setQuiz] = useState({
     question: '',
     options: ['', '', '', ''],
@@ -37,30 +36,28 @@ const AdminDashboard = () => {
     newOptions[index] = value;
     setQuiz({ ...quiz, options: newOptions });
   };
- const handleLogout = async () => {
-   try {
-     await axios.get(
-       'https://cybersecuirty-backend.vercel.app/api/v1/auth/logout',
-       {
-         withCredentials: true, // Ensure cookies (token) are cleared
-       }
-     );
+  const handleLogout = async () => {
+    try {
+      await axios.get(
+        'https://cybersecuirty-backend.vercel.app/api/v1/auth/logout',
+        {
+          withCredentials: true, // Ensure cookies (token) are cleared
+        }
+      );
 
-     // Redirect to login page after successful logout
-     navigate('/login');
-   } catch (error) {
-     console.error('Logout failed:', error);
-   }
- };
-
- 
+      // Redirect to login page after successful logout
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        'http://localhost:4000/api/v1/quiz/quiz',
+        'https://cybersecuirty-backend.vercel.app/api/v1/quiz/quiz',
         quiz
       );
 
@@ -83,7 +80,6 @@ const AdminDashboard = () => {
       alert('Failed to create quiz.');
     }
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-green-400 flex flex-col items-center justify-center p-6">
