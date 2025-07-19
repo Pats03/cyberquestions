@@ -68,9 +68,9 @@ const handleSubmit = async () => {
    await axios.post(
      'https://cybersecuirty-backend.vercel.app/api/v1/quiz/update-score',
      scoreData,
-     {
-       withCredentials: true,
-     }
+    //  {
+    //    withCredentials: true,
+    //  }
    );
 
   } catch (err) {
